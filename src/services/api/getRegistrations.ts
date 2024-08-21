@@ -1,9 +1,10 @@
 import {api} from '~/clients/registrationsClient';
 import { Registration } from '~/types/Registration';
 
-async function getRegistrations(): Promise<Registration[]>  {
+async function getRegistrations(cpf?: string): Promise<Registration[]>  {
+    const params = cpf ? { cpf } : {};
     try {
-        const response = await api.get('/registrations');
+        const response = await api.get('/registrations', {params});
         return  response.data
     } catch (error) {
         console.log(error)

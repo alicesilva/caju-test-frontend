@@ -1,4 +1,4 @@
-import React, { InputHTMLAttributes } from "react";
+import { Dispatch, InputHTMLAttributes, SetStateAction } from "react";
 import styled from "styled-components";
 import { useIMask } from "react-imask";
 
@@ -24,10 +24,27 @@ export const Input = styled.input`
 type Props = {
   label?: string;
   error?: string;
+  mask?: string
+  setSearchQuery?: Dispatch<SetStateAction<string>>
 } & InputHTMLAttributes<any>;
 
 const TextField = (props: Props) => {
-  const { ref } = useIMask({ mask: "000.000.000-00" });
+
+  const { ref } = useIMask(
+    { mask: props?.mask },
+    {
+      onComplete: (e) => {
+        console.log(e)
+        props.setSearchQuery && props.setSearchQuery(e)
+      },
+      onAccept: (e) => {
+        if(e.length === 0){
+          props.setSearchQuery && props.setSearchQuery(e)
+        }
+      }
+    }
+  );
+
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>

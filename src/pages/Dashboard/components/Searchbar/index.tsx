@@ -5,7 +5,14 @@ import { IconButton } from "~/components/Buttons/IconButton";
 import TextField from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
-export const SearchBar = () => {
+import { Dispatch, SetStateAction } from "react";
+import { CPFMask } from "~/constants/cpfMask";
+
+type Props = {
+  setSearchQuery?: Dispatch<SetStateAction<string>>;
+};
+
+export const SearchBar = (props: Props) => {
   const history = useHistory();
 
   const goToNewAdmissionPage = () => {
@@ -14,7 +21,7 @@ export const SearchBar = () => {
   
   return (
     <S.Container>
-      <TextField  placeholder="Digite um CPF válido" />
+      <TextField  placeholder="Digite um CPF válido" setSearchQuery={props.setSearchQuery} mask={CPFMask} />
       <S.Actions>
         <IconButton aria-label="refetch">
           <HiRefresh />
