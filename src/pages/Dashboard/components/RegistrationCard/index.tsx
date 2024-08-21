@@ -10,6 +10,7 @@ import {
 import updateRegistration from "~/services/api/updateRegistration";
 import deleteRegistration from "~/services/api/deleteRegistration";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
+import { useFecthData } from "~/hooks/useFetchData";
 
 const labelOfButtons = {
   [RegistrationStatus.REVIEW]: "Revisar novamente",
@@ -22,14 +23,20 @@ type Props = {
 };
 
 const RegistrationCard = (props: Props) => {
+  const { setRegistrations, registrations } = useFecthData();
+
   const updateStatusCard = async (status: string) => {
-    const newRegistration = { ...props.data, status };
-    await updateRegistration(newRegistration);
+    props.data.status = status;
+    setRegistrations([...registrations]);
+    await updateRegistration(props.data);
   };
 
   const deleteCard = async (id: number) => {
-    await deleteRegistration(id)
-  }
+    const index = registrations.indexOf(props.data);
+    registrations.splice(index, 1);
+    setRegistrations([...registrations]);
+    await deleteRegistration(id);
+  };
 
   return (
     <S.Card>
@@ -73,8 +80,7 @@ const RegistrationCard = (props: Props) => {
           </ButtonSmall>
         )}
 
-        <HiOutlineTrash onClick={() => deleteCard(props.data.id)}
-        />
+        <HiOutlineTrash onClick={() => deleteCard(props.data.id)} />
       </S.Actions>
     </S.Card>
   );

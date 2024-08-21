@@ -1,7 +1,7 @@
-
 import * as S from "./styles";
 import RegistrationCard from "../RegistrationCard";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
+import { useFecthData } from "~/hooks/useFetchData";
 
 const allColumns = [
   { status: RegistrationStatus.REVIEW, title: "Pronto para revisar" },
@@ -9,10 +9,8 @@ const allColumns = [
   { status: RegistrationStatus.REPROVED, title: "Reprovado" },
 ];
 
-type Props = {
-  registrations?: any[];
-};
-const Collumns = (props: Props) => {
+const Collumns = () => {
+  const { registrations } = useFecthData();
   return (
     <S.Container>
       {allColumns.map((collum) => {
@@ -23,12 +21,14 @@ const Collumns = (props: Props) => {
                 {collum.title}
               </S.TitleColumn>
               <S.CollumContent>
-                {props?.registrations?.map((registration) => {
-                  return ( registration.status === collum.status &&
-                    <RegistrationCard
-                      data={registration}
-                      key={registration.id}
-                    />
+                {registrations.map((registration) => {
+                  return (
+                    registration.status === collum.status && (
+                      <RegistrationCard
+                        data={registration}
+                        key={registration.id}
+                      />
+                    )
                   );
                 })}
               </S.CollumContent>

@@ -1,6 +1,7 @@
-import { Dispatch, InputHTMLAttributes, SetStateAction } from "react";
+import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
 import { useIMask } from "react-imask";
+import { useFecthData } from "~/hooks/useFetchData";
 
 export const Input = styled.input`
   padding: 0 8px;
@@ -25,21 +26,21 @@ type Props = {
   label?: string;
   error?: string;
   mask?: string
-  setSearchQuery?: Dispatch<SetStateAction<string>>
 } & InputHTMLAttributes<any>;
 
 const TextField = (props: Props) => {
 
+  const { setSearchQuery} = useFecthData();
+
   const { ref } = useIMask(
     { mask: props?.mask },
     {
-      onComplete: (e) => {
-        console.log(e)
-        props.setSearchQuery && props.setSearchQuery(e)
+      onComplete: (value) => {
+        setSearchQuery(value)
       },
-      onAccept: (e) => {
-        if(e.length === 0){
-          props.setSearchQuery && props.setSearchQuery(e)
+      onAccept: (value) => {
+        if(value.trim().length === 0){
+          setSearchQuery(value)
         }
       }
     }
