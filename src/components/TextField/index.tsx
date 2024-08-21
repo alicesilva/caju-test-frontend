@@ -1,5 +1,6 @@
 import React, { InputHTMLAttributes } from "react";
 import styled from "styled-components";
+import { useIMask } from "react-imask";
 
 export const Input = styled.input`
   padding: 0 8px;
@@ -13,7 +14,7 @@ export const Input = styled.input`
   font-size: 16px;
   line-height: 18px;
   font-weight: normal;
-  border-radius:8px;
+  border-radius: 8px;
   :focus {
     outline: none;
     border: 1px solid #007c89;
@@ -26,11 +27,12 @@ type Props = {
 } & InputHTMLAttributes<any>;
 
 const TextField = (props: Props) => {
+  const { ref } = useIMask({ mask: "000.000.000-00" });
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>
-      <Input {...props} />
-      <span style={{fontSize: 12, color: 'red'}}>{props.error}</span>
+      <Input ref={ref} {...props} />
+      <span style={{ fontSize: 12, color: "red" }}>{props.error}</span>
     </div>
   );
 };
