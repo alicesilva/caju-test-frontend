@@ -6,19 +6,21 @@ import TextField from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
 import { CPFMask } from "~/constants/cpfMask";
+import { useFecthData } from "~/hooks/useFetchData";
 
 export const SearchBar = () => {
   const history = useHistory();
+  const { setIsLoading } = useFecthData();
 
   const goToNewAdmissionPage = () => {
     history.push(routes.newUser);
   };
-  
+
   return (
     <S.Container>
       <TextField  placeholder="Digite um CPF válido" mask={CPFMask} />
       <S.Actions>
-        <IconButton aria-label="refetch">
+        <IconButton aria-label="refetch" onClick={() => setIsLoading(true)}>
           <HiRefresh />
         </IconButton>
         <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>

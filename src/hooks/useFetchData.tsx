@@ -6,8 +6,10 @@ import { Registration } from "~/types/Registration";
 const RegistrationDataContext = createContext({
   registrations: [] as Registration[],
   setRegistrations: React.Dispatch<React.SetStateAction<Registration[]>>,
-  searchQuery: "" as string,
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>
+  searchQuery: "",
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>,
+  isLoading: false,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
 });
 
 type Props = {
@@ -17,6 +19,7 @@ type Props = {
 function RegistrationDataContextProvider({ children }: Props) {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const value = useMemo(
     () => ({
@@ -24,11 +27,14 @@ function RegistrationDataContextProvider({ children }: Props) {
       setRegistrations,
       searchQuery,
       setSearchQuery,
+      isLoading,
+      setIsLoading
     }),
-    [registrations, searchQuery]
+    [registrations, searchQuery, isLoading]
   );
 
   useEffect(() => {
+    setIsLoading(true);
     let cpf = null;
     if (searchQuery.length > 0) {
       cpf = deleteMaskCpf(searchQuery);
@@ -39,7 +45,8 @@ function RegistrationDataContextProvider({ children }: Props) {
     };
 
     fetchData();
-  }, [searchQuery]);
+    setIsLoading(false);
+  }, [searchQuery, isLoading]);
 
   return (
     <RegistrationDataContext.Provider value={value}>{children}</RegistrationDataContext.Provider>
