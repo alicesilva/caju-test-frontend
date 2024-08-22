@@ -7,8 +7,8 @@ async function getRegistrations(cpf?: string): Promise<Registration[]>  {
         const response = await api.get('/registrations', {params});
         return  response.data
     } catch (error) {
-        console.log(error)
-        return []
+        console.error(error)
+        throw error
     }
 }
 

@@ -6,8 +6,8 @@ async function updateRegistration(registration: Registration): Promise<Registrat
         const response = await api.put(`/registrations/${registration.id}`, registration);
         return response.data
     } catch (error) {
-        console.log(error);
-        return null;
+        console.log(error)
+        throw error
     }
 }
 

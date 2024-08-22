@@ -9,6 +9,7 @@ const allColumns = [
   { status: RegistrationStatus.REPROVED, title: "Reprovado" },
 ];
 
+
 const Collumns = () => {
   const { registrations } = useFecthData();
   return (
