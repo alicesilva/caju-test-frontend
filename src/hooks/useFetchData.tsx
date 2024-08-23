@@ -1,4 +1,11 @@
-import React, { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import getRegistrations from "~/services/api/getRegistrations";
 import { Registration } from "~/types/Registration";
@@ -9,17 +16,20 @@ const RegistrationDataContext = createContext({
   searchQuery: "",
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>,
   isLoading: false,
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
+  refresh: false,
+  setRefresh: React.Dispatch<React.SetStateAction<boolean>>,
 });
 
 type Props = {
-    children: ReactNode
-}
+  children: ReactNode;
+};
 
 function RegistrationDataContextProvider({ children }: Props) {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   const value = useMemo(
     () => ({
@@ -28,9 +38,11 @@ function RegistrationDataContextProvider({ children }: Props) {
       searchQuery,
       setSearchQuery,
       isLoading,
-      setIsLoading
+      setIsLoading,
+      refresh,
+      setRefresh,
     }),
-    [registrations, searchQuery, isLoading]
+    [registrations, searchQuery, isLoading, refresh]
   );
 
   useEffect(() => {
@@ -44,17 +56,21 @@ function RegistrationDataContextProvider({ children }: Props) {
       setRegistrations(data);
     };
 
-    fetchData();
-    setIsLoading(false);
-  }, [searchQuery, isLoading]);
+    setTimeout(() => {
+      fetchData().finally(() => setIsLoading(false));
+    }, 1000);
+    setRefresh(false);
+  }, [searchQuery, refresh]);
 
   return (
-    <RegistrationDataContext.Provider value={value}>{children}</RegistrationDataContext.Provider>
-  )
-};
+    <RegistrationDataContext.Provider value={value}>
+      {children}
+    </RegistrationDataContext.Provider>
+  );
+}
 
-function useFecthData(){
-    return useContext(RegistrationDataContext)
-};
+function useFecthData() {
+  return useContext(RegistrationDataContext);
+}
 
-export { RegistrationDataContextProvider, useFecthData}
+export { RegistrationDataContextProvider, useFecthData };

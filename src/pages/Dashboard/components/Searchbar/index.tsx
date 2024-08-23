@@ -10,7 +10,7 @@ import { useFecthData } from "~/hooks/useFetchData";
 
 export const SearchBar = () => {
   const history = useHistory();
-  const { setIsLoading } = useFecthData();
+  const { setRefresh } = useFecthData();
 
   const goToNewAdmissionPage = () => {
     history.push(routes.newUser);
@@ -20,7 +20,7 @@ export const SearchBar = () => {
     <S.Container>
       <TextField  placeholder="Digite um CPF válido" mask={CPFMask} />
       <S.Actions>
-        <IconButton data-testid="refresh-icon" aria-label="refetch" onClick={() => setIsLoading(true)}>
+        <IconButton data-testid="refresh-icon" aria-label="refetch" onClick={() => setRefresh(true)}>
           <HiRefresh />
         </IconButton>
         <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>

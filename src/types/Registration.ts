@@ -1,7 +1,7 @@
 import { RegistrationStatus } from "./RegistrationStatus";
 
 export type Registration = {
-    id: string;
+    id?: string;
     cpf: string;
     status: RegistrationStatus;
     admissionDate: string;
