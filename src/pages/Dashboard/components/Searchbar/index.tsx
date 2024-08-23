@@ -20,7 +20,7 @@ export const SearchBar = () => {
     <S.Container>
       <TextField  placeholder="Digite um CPF válido" mask={CPFMask} />
       <S.Actions>
-        <IconButton aria-label="refetch" onClick={() => setIsLoading(true)}>
+        <IconButton data-testid="refresh-icon" aria-label="refetch" onClick={() => setIsLoading(true)}>
           <HiRefresh />
         </IconButton>
         <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>

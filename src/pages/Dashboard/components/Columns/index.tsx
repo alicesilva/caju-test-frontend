@@ -12,10 +12,11 @@ const allColumns = [
 
 const Collumns = () => {
   const { registrations, isLoading } = useFecthData();
+
   return (
     <>
       {isLoading ? (
-        <S.Spinner>
+        <S.Spinner data-testid="loading-spinner">
           <ColorRing
             visible={true}
             height="100"
@@ -35,17 +36,16 @@ const Collumns = () => {
                     {collum.title}
                   </S.TitleColumn>
                   <S.CollumContent>
-                    {!isLoading &&
-                      registrations.map((registration) => {
-                        return (
-                          registration.status === collum.status && (
-                            <RegistrationCard
-                              data={registration}
-                              key={registration.id}
-                            />
-                          )
-                        );
-                      })}
+                    {registrations.map((registration) => {
+                      return (
+                        registration.status === collum.status && (
+                          <RegistrationCard
+                            data={registration}
+                            key={registration.id}
+                          />
+                        )
+                      );
+                    })}
                   </S.CollumContent>
                 </>
               </S.Column>

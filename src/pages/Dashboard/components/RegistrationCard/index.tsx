@@ -11,7 +11,7 @@ import updateRegistration from "~/services/api/updateRegistration";
 import deleteRegistration from "~/services/api/deleteRegistration";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
 import { useFecthData } from "~/hooks/useFetchData";
-import { useConfirmModal } from "~/hooks/useConfirmModal";
+import { useConfirmationModal } from "~/hooks/useConfirmationModal";
 import { Registration } from "~/types/Registration";
 import Modal from "~/components/Modal";
 import { Actions } from "~/types/Actions";
@@ -38,7 +38,7 @@ type HandleClickProps = {
 const RegistrationCard = (props: Props) => {
   const { setRegistrations, registrations } = useFecthData();
   const { setOpenModal, openModal, setContent, isConfirm, setIsConfirm } =
-    useConfirmModal();
+  useConfirmationModal();
   const [action, setAction] = useState("");
   const [newStatus, setNewStatus] = useState(props.data.status);
 

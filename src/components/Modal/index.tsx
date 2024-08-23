@@ -1,10 +1,10 @@
-import { useConfirmModal } from "~/hooks/useConfirmModal";
+import { useConfirmationModal } from "~/hooks/useConfirmationModal";
 import Button from "../Buttons";
 import * as S from "./styles";
 import { IoMdClose } from "react-icons/io";
 
 const Modal = () => {
-  const { setIsConfirm, setOpenModal, content } = useConfirmModal();
+  const { setIsConfirm, setOpenModal, content } = useConfirmationModal();
 
   return (
     <S.Container>
@@ -14,9 +14,7 @@ const Modal = () => {
         </S.Header>
         <S.Body>
           <S.Title>{content.title}</S.Title>
-          {content.subtitle?.length > 0 && (
-            <S.Subtitle>{content.subtitle}</S.Subtitle>
-          )}
+          <S.Subtitle>{content.subtitle}</S.Subtitle>
           <S.Actions>
             <S.AgreeAction onClick={() => setIsConfirm(true)}>
               <Button>{content.isConfirmButtonLabel}</Button>

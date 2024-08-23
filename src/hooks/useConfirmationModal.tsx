@@ -52,8 +52,8 @@ function ModalContextProvider({ children }: ModalContextProviderProps) {
   );
 }
 
-function useConfirmModal() {
+function useConfirmationModal() {
   return useContext(ModalContext);
 }
 
-export { ModalContextProvider, useConfirmModal };
+export { ModalContextProvider, useConfirmationModal };

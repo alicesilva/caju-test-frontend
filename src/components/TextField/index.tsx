@@ -30,7 +30,7 @@ type Props = {
 
 const TextField = (props: Props) => {
 
-  const { setSearchQuery} = useFecthData();
+  const { setSearchQuery } = useFecthData();
 
   const { ref } = useIMask(
     { mask: props?.mask },
