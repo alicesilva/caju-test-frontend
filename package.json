@@ -12,7 +12,9 @@
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
     "predeploy": "yarn run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "test:playwright": "playwright test --headed --config=playwright.config.ts --project=chromium",
+    "test:playwright:helper": "npx playwright codegen http://localhost:3000"
   },
   "dependencies": {
     "@react-input/mask": "^1.2.5",
@@ -34,10 +36,12 @@
   },
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^2.0.4",
+    "@playwright/test": "^1.46.1",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "13.0.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
+    "@types/node": "^22.5.0",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@types/react-router-dom": "^5.3.3",
