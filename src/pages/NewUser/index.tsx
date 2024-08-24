@@ -117,7 +117,7 @@ const NewUserPage = () => {
         />
         {InfoErrorText(formik.touched.date, formik.errors.date)}
 
-        <Button onClick={formik.handleSubmit} type="submit">
+        <Button onClick={() => formik.submitForm()} type="submit">
           Cadastrar
         </Button>
       </S.Card>

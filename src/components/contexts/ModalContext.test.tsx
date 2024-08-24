@@ -15,7 +15,7 @@ const getContext = () => {
 };
 
 describe("ModalContext", () => {
-  test("should return initial data when useConfirmationModal", () => {
+  it("should return initial data when useConfirmationModal", () => {
     const wrapper = getContext();
     const { result } = renderHook(() => useConfirmationModal(), { wrapper });
 

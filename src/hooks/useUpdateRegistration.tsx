@@ -1,4 +1,6 @@
-import { useEffect } from "react";
+
+//eslint-disable-next-line
+import React, { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
 import { useFecthData } from "~/components/contexts/RegistrationData";

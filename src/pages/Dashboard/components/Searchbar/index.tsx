@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, {useState} from "react";
 import { HiRefresh } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
 import Button from "~/components/Buttons";
@@ -14,7 +14,7 @@ import { regex } from "~/constants/regex";
 export const SearchBar = () => {
   const history = useHistory();
   const { setRefresh, setSearchQuery } = useFecthData();
-  const [query, setQuery] = React.useState("");
+  const [query, setQuery] = useState("");
 
   const goToNewAdmissionPage = () => {
     history.push(routes.newUser);

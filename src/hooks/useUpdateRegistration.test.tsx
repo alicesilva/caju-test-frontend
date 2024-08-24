@@ -70,7 +70,7 @@ describe("useUpdateRegistration", () => {
     jest.clearAllMocks();
   });
 
-  it("should update registration status and show success toast", async () => {
+  it("should call update registration status if action is update", async () => {
     const updateRegistrationSpy = jest.spyOn(UpdateRegistration, "default");
     
     renderHook(() =>
@@ -89,7 +89,7 @@ describe("useUpdateRegistration", () => {
     });
   });
 
-  it("should update registration status and show success toast", async () => {
+  it("should call delete registration if action is deleteRegistration", async () => {
     const deleteRegistrationSpy = jest.spyOn(DeleteRegistration, "default");
 
     renderHook(() =>

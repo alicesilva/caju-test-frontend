@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { ButtonSmall } from "~/components/Buttons";
 import * as S from "./styles";
 import {
@@ -12,7 +13,6 @@ import { useConfirmationModal } from "~/components/contexts/ModalContext";
 import { Registration } from "~/types/Registration";
 import { Actions } from "~/types/Actions";
 import { contentsModal } from "~/constants/contentsModal";
-import { useState } from "react";
 import useUpdateRegistration from "~/hooks/useUpdateRegistration";
 
 const labelOfButtons = {
