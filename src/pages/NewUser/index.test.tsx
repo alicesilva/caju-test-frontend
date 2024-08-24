@@ -27,7 +27,7 @@ jest.mock("~/components/contexts/RegistrationData", () => ({
 const mockHandleSubmit = jest.fn();
 jest.mock("formik", () => ({
   useFormik: jest.fn(() => ({
-    handleSubmit: mockHandleSubmit,
+    submitForm: mockHandleSubmit,
     values: { employeeName: "", email: "", cpf: "", date: "" },
     touched: { employeeName: true, email: true, cpf: true, date: true },
     errors: {
