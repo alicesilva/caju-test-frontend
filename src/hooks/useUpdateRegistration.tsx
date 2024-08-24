@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { toast } from "react-toastify";
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
 import { useFecthData } from "~/components/contexts/RegistrationData";

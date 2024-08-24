@@ -1,4 +1,5 @@
 {
+  "homepage": "https://alicesilva.github.io/caju-test-frontend",
   "name": "caju-front-test-1",
   "private": true,
   "version": "0.0.0",
@@ -9,7 +10,9 @@
     "build": "tsc && vite build",
     "test:dev": "jest --coverage --watch --verbose --no-cache",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "@react-input/mask": "^1.2.5",
@@ -48,6 +51,7 @@
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "gh-pages": "^6.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "29.7.0",
     "ts-jest": "29.1.2",
