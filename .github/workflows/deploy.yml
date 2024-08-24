@@ -39,8 +39,9 @@ jobs:
         env:
           MY_EMAIL: alice.silva@ccc.ufcg.edu.br
           MY_NAME: alicesilva
-        run: git config --global user.email $MY_EMAIL
-             git config --global user.name $MY_NAME |
+        run: 
+            - git config --global user.email $MY_EMAIL
+            - git config --global user.name $MY_NAME
       - name: Install dependencies
         run: yarn install
       - name: Build
