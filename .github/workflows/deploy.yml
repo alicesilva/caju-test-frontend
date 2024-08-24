@@ -36,7 +36,7 @@ jobs:
           node-version: 21
           cache: 'yarn'
       - name: Install dependencies
-        run: yarn add
+        run: yarn install
       - name: Build
         run: yarn run deploy
       - name: Setup Pages
