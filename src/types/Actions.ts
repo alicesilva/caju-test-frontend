@@ -1,5 +1,6 @@
 export enum Actions {
     DELETE = "DELETE",
-    UPDATE = "UPDATE"
+    UPDATE = "UPDATE",
+    DEFAULT= "",
   }
   

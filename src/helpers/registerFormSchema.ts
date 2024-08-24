@@ -2,7 +2,7 @@ import * as yup from "yup";
 import { cpf } from "cpf-cnpj-validator";
 
 export const schema = yup.object({
-  employeeName: yup
+    employeeName: yup
     .string()
     .matches(/^(?!\d)[A-Za-z][A-Za-z]*(?:\s[A-Za-z]+)+$/, "Nome inválido")
     .required("O campo é obrigatório."),
@@ -16,5 +16,5 @@ export const schema = yup.object({
     .test("is-valid-cpf", "Digite um CPF Valido", (value) =>
       cpf.isValid(value)
     ),
-  date: yup.date().required(),
+  date: yup.date().required("O campo é obrigatório."),
 });

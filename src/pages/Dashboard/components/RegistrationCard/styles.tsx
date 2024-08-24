@@ -33,3 +33,9 @@ export const Actions = styled.div`
     cursor: pointer;
   }
 `;
+
+export const ActionsStatus = styled.div`
+  display: flex;
+  gap: 4px;
+`;
+

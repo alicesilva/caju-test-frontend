@@ -1,7 +1,7 @@
 import * as S from "./styles";
 import RegistrationCard from "../RegistrationCard";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
-import { useFecthData } from "~/hooks/useFetchData";
+import { useFecthData } from "~/components/contexts/RegistrationData";
 import { ColorRing } from "react-loader-spinner";
 
 const allColumns = [

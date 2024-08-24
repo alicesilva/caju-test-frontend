@@ -1,4 +1,4 @@
-import { useConfirmationModal } from "~/hooks/useConfirmationModal";
+import { useConfirmationModal } from "~/components/contexts/ModalContext";
 import Button from "../Buttons";
 import * as S from "./styles";
 import { IoMdClose } from "react-icons/io";

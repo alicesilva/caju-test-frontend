@@ -1,7 +1,5 @@
 import { InputHTMLAttributes } from "react";
 import styled from "styled-components";
-import { useIMask } from "react-imask";
-import { useFecthData } from "~/hooks/useFetchData";
 
 export const Input = styled.input`
   padding: 0 8px;
@@ -29,27 +27,10 @@ type Props = {
 } & InputHTMLAttributes<any>;
 
 const TextField = (props: Props) => {
-
-  const { setSearchQuery } = useFecthData();
-
-  const { ref } = useIMask(
-    { mask: props?.mask },
-    {
-      onComplete: (value) => {
-        setSearchQuery(value)
-      },
-      onAccept: (value) => {
-        if(value.trim().length === 0){
-          setSearchQuery(value)
-        }
-      }
-    }
-  );
-
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>
-      <Input ref={ref} {...props} />
+      <Input {...props} />
       <span style={{ fontSize: 12, color: "red" }}>{props.error}</span>
     </div>
   );

@@ -4,21 +4,32 @@ import React, {
   useContext,
   useMemo,
   useState,
+  Dispatch,
+  SetStateAction
 } from "react";
 import { ContentModal } from "~/types/ContentModal";
 
-const ModalContext = createContext({
+interface IModalContext {
+  openModal: boolean,
+  setOpenModal: Dispatch<SetStateAction<boolean>>,
+  isConfirm: boolean,
+  setIsConfirm: Dispatch<SetStateAction<boolean>>,
+  content: ContentModal,
+  setContent: Dispatch<SetStateAction<ContentModal>>,
+}
+
+const ModalContext = createContext<IModalContext>({
   openModal: false,
-  setOpenModal: React.Dispatch<React.SetStateAction<boolean>>,
+  setOpenModal: () => {},
   isConfirm: false,
-  setIsConfirm: React.Dispatch<React.SetStateAction<boolean>>,
+  setIsConfirm: () => {},
   content: {
     title: "",
     subtitle: "",
     isConfirmButtonLabel: "",
     isNotConfirmButtonLabel: "",
   },
-  setContent: React.Dispatch<React.SetStateAction<ContentModal>>,
+  setContent: () => {},
 });
 
 type ModalContextProviderProps = {

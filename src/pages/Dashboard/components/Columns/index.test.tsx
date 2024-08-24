@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import Collumns from ".";
 import { render, screen } from "@testing-library/react";
-import { useFecthData } from "~/hooks/useFetchData";
+import { useFecthData } from "~/components/contexts/RegistrationData";
 
 const registrationsMock = [
   {
@@ -22,12 +22,12 @@ const registrationsMock = [
   },
 ];
 
-jest.mock("~/hooks/useConfirmationModal", () => ({
+jest.mock("~/components/contexts/ModalContext", () => ({
   useConfirmationModal: jest.fn(() => ({
     setOpenModal: jest.fn(),
   })),
 }));
-jest.mock("~/hooks/useFetchData", () => ({
+jest.mock("~/components/contexts/RegistrationData", () => ({
   useFecthData: jest.fn(() => ({
     registrations: registrationsMock,
     isLoading: false,
@@ -36,11 +36,11 @@ jest.mock("~/hooks/useFetchData", () => ({
 
 describe("Collumns", () => {
   afterEach(() => {
-    useFecthData.mockClear();
+    (useFecthData as unknown as jest.Mock).mockClear();
   });
 
   it("Should show loading when is loading is true", () => {
-    useFecthData.mockImplementation(() => ({
+    (useFecthData as unknown as jest.Mock).mockImplementation(() => ({
       registrations: registrationsMock,
       isLoading: true,
     }));
@@ -50,7 +50,7 @@ describe("Collumns", () => {
   });
 
   it("Should not show loading when is loading is false", () => {
-    useFecthData.mockImplementation(() => ({
+    (useFecthData as unknown as jest.Mock).mockImplementation(() => ({
       registrations: registrationsMock,
       isLoading: false,
     }));

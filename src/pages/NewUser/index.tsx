@@ -6,25 +6,26 @@ import { IconButton } from "~/components/Buttons/IconButton";
 import { useHistory } from "react-router-dom";
 import routes from "~/router/routes";
 import { useFormik } from "formik";
-import { schema } from "~/helpers/schemaRegisterForm";
+import { schema } from "~/helpers/registerFormSchema";
 import { cpfMask } from "~/helpers/cpfMask";
 import { Registration } from "~/types/Registration";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
 import createRegistration from "~/services/api/createRegistration";
 import { toast } from "react-toastify";
-import { useFecthData } from "~/hooks/useFetchData";
+import { useFecthData } from "~/components/contexts/RegistrationData";
 import { InputForm } from "~/types/InputForm";
+import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 
-async function createAdmission(values: InputForm) {
+async function createAdmission(values: InputForm): Promise<Registration | null> {
   const registration: Registration = {
     employeeName: values.employeeName,
     admissionDate: values.date,
-    cpf: values.cpf,
+    cpf: deleteMaskCpf(values.cpf),
     email: values.email,
     status: RegistrationStatus.REVIEW,
   };
 
-  await createRegistration(registration);
+  return await createRegistration(registration);
 }
 
 const NewUserPage = () => {
@@ -33,7 +34,7 @@ const NewUserPage = () => {
     history.push(routes.dashboard);
   };
 
-  const { setRefresh } = useFecthData();
+  const { setRegistrations, registrations } = useFecthData();
 
   const formik = useFormik({
     initialValues: {
@@ -45,12 +46,12 @@ const NewUserPage = () => {
     validationSchema: schema,
     onSubmit: async (values) => {
       try {
-        await createAdmission(values);
-        toast.success("Admissão criada com sucesso");
+        const newRegistration = await createAdmission(values);
+        newRegistration && setRegistrations([...registrations, newRegistration])
+        toast.success("Admissão criada com sucesso", {toastId: "create-success"});
         goToHome();
-        setRefresh(true);
       } catch (error) {
-        toast.error("Não possível registrar a admissão. Tente novamente");
+        toast.error("Não possível registrar a admissão. Tente novamente", {toastId: "create-error"});
       }
     },
   });
@@ -112,6 +113,7 @@ const NewUserPage = () => {
           onBlur={formik.handleBlur}
           value={formik.values.date}
           name="date"
+          placeholder="Data de admissão"
         />
         {InfoErrorText(formik.touched.date, formik.errors.date)}
 

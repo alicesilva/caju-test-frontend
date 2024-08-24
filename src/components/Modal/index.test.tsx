@@ -4,7 +4,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event"
 
 const mockFunction = jest.fn()
-jest.mock("~/hooks/useConfirmationModal", () => ({
+jest.mock("~/components/contexts/ModalContext", () => ({
   useConfirmationModal: jest.fn(() => ({
     setIsConfirm: mockFunction,
     setOpenModal: mockFunction,

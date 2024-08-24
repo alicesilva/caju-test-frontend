@@ -1,6 +1,8 @@
 import React, {
   createContext,
+  Dispatch,
   ReactNode,
+  SetStateAction,
   useContext,
   useEffect,
   useMemo,
@@ -10,15 +12,22 @@ import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import getRegistrations from "~/services/api/getRegistrations";
 import { Registration } from "~/types/Registration";
 
-const RegistrationDataContext = createContext({
-  registrations: [] as Registration[],
-  setRegistrations: React.Dispatch<React.SetStateAction<Registration[]>>,
-  searchQuery: "",
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>,
+interface IRegistrationDataContext {
+  registrations: Registration[];
+  setRegistrations: Dispatch<SetStateAction<Registration[]>>;
+  setSearchQuery: Dispatch<SetStateAction<string>>;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
+  setRefresh: Dispatch<SetStateAction<boolean>>;
+}
+
+const RegistrationDataContext = createContext<IRegistrationDataContext>({
+  registrations: [],
+  setRegistrations: () => {},
+  setSearchQuery: () => {},
   isLoading: false,
-  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>,
-  refresh: false,
-  setRefresh: React.Dispatch<React.SetStateAction<boolean>>,
+  setIsLoading: () => {},
+  setRefresh: () => {},
 });
 
 type Props = {
@@ -58,7 +67,7 @@ function RegistrationDataContextProvider({ children }: Props) {
 
     setTimeout(() => {
       fetchData().finally(() => setIsLoading(false));
-    }, 1000);
+    }, 500);
     setRefresh(false);
   }, [searchQuery, refresh]);
 
