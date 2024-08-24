@@ -44,9 +44,10 @@ describe("Collumns", () => {
       registrations: registrationsMock,
       isLoading: true,
     }));
-    render(<Collumns />);
+    const { debug } = render(<Collumns />);
 
     expect(screen.getByTestId("loading-spinner")).toBeInTheDocument();
+    debug();
   });
 
   it("Should not show loading when is loading is false", () => {
@@ -54,9 +55,10 @@ describe("Collumns", () => {
       registrations: registrationsMock,
       isLoading: false,
     }));
-    render(<Collumns />);
+    const { debug } = render(<Collumns />);
 
     expect(screen.queryByTestId("loading-spinner")).not.toBeInTheDocument();
     expect(screen.getByText("Reprovado")).toBeInTheDocument();
+    debug();
   });
 });

@@ -13,7 +13,7 @@ import { regex } from "~/constants/regex";
 
 export const SearchBar = () => {
   const history = useHistory();
-  const { setRefresh, setSearchQuery } = useFecthData();
+  const { setRefetch, setSearchQuery } = useFecthData();
   const [query, setQuery] = useState("");
 
   const goToNewAdmissionPage = () => {
@@ -33,7 +33,7 @@ export const SearchBar = () => {
   }
 
   const handleRefresh = () => {
-    setRefresh(true);
+    setRefetch(true);
     setSearchQuery("");
     setQuery("");
   }

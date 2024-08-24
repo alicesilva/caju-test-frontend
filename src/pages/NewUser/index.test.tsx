@@ -20,7 +20,7 @@ jest.mock("react-router-dom", () => ({
 jest.mock("~/services/api/createRegistration");
 jest.mock("~/components/contexts/RegistrationData", () => ({
   useFecthData: jest.fn(() => ({
-    setRefresh: jest.fn(),
+    setRefetch: jest.fn(),
   })),
 }));
 
@@ -47,17 +47,18 @@ describe("NewUser Component", () => {
   });
 
   it("should render inputs of form", () => {
-    render(<NewUser />);
+    const { debug } = render(<NewUser />);
 
     expect(screen.getByPlaceholderText(/Nome/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/Email/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/CPF/i)).toBeInTheDocument();
     expect(screen.getByText(/Data de admissão/i)).toBeInTheDocument();
     expect(screen.getByText(/Cadastrar/i)).toBeInTheDocument();
+    debug()
   });
 
   it("should show error messages when form is invalid", async () => {
-    render(<NewUser />);
+    const { debug } = render(<NewUser />);
     await user.click(screen.getByText(/Cadastrar/i));
 
     let textErrors = [];
@@ -66,10 +67,11 @@ describe("NewUser Component", () => {
     });
 
     expect(textErrors.length).toBe(4);
+    debug()
   });
 
   it("should submit the form", async () => {
-    render(<NewUser />);
+    const { debug } = render(<NewUser />);
 
     await user.type(screen.getByPlaceholderText(/Nome/i), "Test Name");
     await user.type(
@@ -87,5 +89,7 @@ describe("NewUser Component", () => {
     await waitFor(() => {
       expect(mockHandleSubmit).toHaveBeenCalledTimes(1);
     });
+
+    debug()
   });
 });

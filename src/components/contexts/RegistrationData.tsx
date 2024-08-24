@@ -8,6 +8,7 @@ import React, {
   useMemo,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import getRegistrations from "~/services/api/getRegistrations";
 import { Registration } from "~/types/Registration";
@@ -18,7 +19,7 @@ interface IRegistrationDataContext {
   setSearchQuery: Dispatch<SetStateAction<string>>;
   isLoading: boolean;
   setIsLoading: Dispatch<SetStateAction<boolean>>;
-  setRefresh: Dispatch<SetStateAction<boolean>>;
+  setRefetch: Dispatch<SetStateAction<boolean>>;
 }
 
 const RegistrationDataContext = createContext<IRegistrationDataContext>({
@@ -27,7 +28,7 @@ const RegistrationDataContext = createContext<IRegistrationDataContext>({
   setSearchQuery: () => {},
   isLoading: false,
   setIsLoading: () => {},
-  setRefresh: () => {},
+  setRefetch: () => {},
 });
 
 type Props = {
@@ -38,7 +39,7 @@ function RegistrationDataContextProvider({ children }: Props) {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+  const [refetch, setRefetch] = useState(false);
 
   const value = useMemo(
     () => ({
@@ -48,10 +49,10 @@ function RegistrationDataContextProvider({ children }: Props) {
       setSearchQuery,
       isLoading,
       setIsLoading,
-      refresh,
-      setRefresh,
+      refetch,
+      setRefetch,
     }),
-    [registrations, searchQuery, isLoading, refresh]
+    [registrations, searchQuery, isLoading, refetch]
   );
 
   useEffect(() => {
@@ -66,10 +67,10 @@ function RegistrationDataContextProvider({ children }: Props) {
     };
 
     setTimeout(() => {
-      fetchData().finally(() => setIsLoading(false));
-    }, 500);
-    setRefresh(false);
-  }, [searchQuery, refresh]);
+      fetchData().catch(() => toast.error("Erro ao carregar os registros.")).finally(() => setIsLoading(false));
+    }, 300);
+    setRefetch(false);
+  }, [searchQuery, refetch]);
 
   return (
     <RegistrationDataContext.Provider value={value}>

@@ -12,7 +12,7 @@ jest.mock("react-router-dom", () => ({
 
 jest.mock("~/components/contexts/RegistrationData", () => ({
   useFecthData: jest.fn(() => ({
-    setRefresh: mockSetRefreshFunction,
+    setRefetch: mockSetRefreshFunction,
     setSearchQuery: mockSetSearchQuery,
   })),
 }));
