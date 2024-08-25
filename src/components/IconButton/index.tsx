@@ -1,15 +1,12 @@
+import React, { ReactNode, HTMLAttributes } from "react";
 import * as S from "./styles";
 
 type IconButtonProps = {
-  children?: React.ReactNode;
-} & React.HTMLAttributes<HTMLButtonElement>;
+  children?: ReactNode;
+} & HTMLAttributes<HTMLButtonElement>;
 
 const IconButton = (props: IconButtonProps) => {
-  return (
-    <S._IconButtonStyled {...props}>
-      {props.children}
-    </S._IconButtonStyled>
-  );
+  return <S.IconButton {...props}>{props.children}</S.IconButton>;
 };
 
 export default IconButton;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const _IconButtonStyled = styled.button`
+export const IconButton = styled.button`
   cursor: pointer;
   border: 2px solid #64a98c;
   width: fit-content;

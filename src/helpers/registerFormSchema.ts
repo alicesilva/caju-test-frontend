@@ -4,17 +4,17 @@ import { cpf } from "cpf-cnpj-validator";
 export const schema = yup.object({
     employeeName: yup
     .string()
-    .matches(/^(?!\d)[A-Za-z][A-Za-z]*(?:\s[A-Za-z]+)+$/, "Nome inválido")
-    .required("O campo é obrigatório."),
+    .matches(/^(?!\d)[A-Za-z][A-Za-z]*(?:\s[A-Za-z]+)+$/, "Nome inválido, insira Nome e Sobrenome")
+    .required("Nome é obrigatório."),
   email: yup
     .string()
     .email("E-mail inválido.")
-    .required("O campo é obrigatório."),
+    .required("Nome é obrigatório."),
   cpf: yup
     .string()
-    .required("O campo é obrigatório.")
+    .required("CPF é obrigatório.")
     .test("is-valid-cpf", "Digite um CPF Valido", (value) =>
       cpf.isValid(value)
     ),
-  date: yup.date().required("O campo é obrigatório."),
+  date: yup.date().required("Data de Admissão é obrigatório."),
 });

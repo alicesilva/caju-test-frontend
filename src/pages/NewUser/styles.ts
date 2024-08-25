@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { _IconButtonStyled } from "~/components/IconButton/styles";
+import { IconButton } from "~/components/IconButton/styles";
 import { Button } from "~/components/Buttons/ButtonPrimary/styles";
 
 
@@ -19,7 +19,7 @@ export const Card = styled.div`
   flex-direction: column;
   gap: 16px;
  
-  ${_IconButtonStyled} {
+  ${IconButton} {
     margin-bottom: 8px;
     align-items: flex-start;
   }

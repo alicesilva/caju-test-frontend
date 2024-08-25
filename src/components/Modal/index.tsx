@@ -1,3 +1,4 @@
+import React from 'react';
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
 import * as S from "./styles";
 import { IoMdClose } from "react-icons/io";
