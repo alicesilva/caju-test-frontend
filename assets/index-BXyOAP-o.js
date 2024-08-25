@@ -51,6 +51,21 @@ Error generating stack: `+o.message+`
   grid-gap: 24px;
   justify-content: center;
   margin-top: 24px;
+
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #fff; /* color of the tracking area */
+    border-radius: 20px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #d3d3d3;
+    border-radius: 20px;
+    border: 3px solid #fff;
+  }
 `,mx=ee.div`
   height: auto;
   background-color: ${({status:e})=>rg[e].background};
