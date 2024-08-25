@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-test('create registration success when fields are valid', async ({ page }) => {
+test('should create registration with success when fields are valid', async ({ page }) => {
   await page.goto('/');
   await page.getByRole('button', { name: 'Nova Admissão' }).click();
   await page.getByPlaceholder('Nome').fill('teste name');
@@ -14,11 +14,11 @@ test('create registration success when fields are valid', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'teste name' }).first()).toBeVisible();
 });
 
-test('create registration fails when fields are not valid', async ({ page }) => {
+test('should not create registration when fields are not valid', async ({ page }) => {
   await page.goto('http://localhost:3001/caju-test-frontend/#/dashboard');
   await page.getByRole('button', { name: 'Nova Admissão' }).click();
   await page.getByRole('button', { name: 'Cadastrar' }).click();
 
   // assert
-  await expect(page.getByText('O campo é obrigatório').first()).toBeVisible()
+  await expect(page.getByText("Nome é obrigatório.").first()).toBeVisible()
 });
