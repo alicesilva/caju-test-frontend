@@ -9,12 +9,12 @@ export const schema = yup.object({
   email: yup
     .string()
     .email("E-mail inválido.")
-    .required("Nome é obrigatório."),
+    .required("Email é obrigatório."),
   cpf: yup
     .string()
     .required("CPF é obrigatório.")
     .test("is-valid-cpf", "Digite um CPF Valido", (value) =>
       cpf.isValid(value)
     ),
-  date: yup.date().required("Data de Admissão é obrigatório."),
+  date: yup.date().required("Data de admissão é obrigatório."),
 });
