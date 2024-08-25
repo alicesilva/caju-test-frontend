@@ -2,7 +2,7 @@ import Collumns from "../../components/Columns";
 import * as S from "./styles";
 import SearchBar from "../../components/Searchbar";
 import "react-toastify/dist/ReactToastify.css";
-import Modal from "~/components/Modal";
+import ConfirmationModal from "~/components/ConfirmationModal";
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
 
 const DashboardPage = () => {
@@ -10,7 +10,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      {openModal && <Modal />}
+      {openModal && <ConfirmationModal />}
       <S.Container>
         <SearchBar />
         <Collumns />

@@ -2,6 +2,7 @@ import { Meta, StoryFn } from '@storybook/react';
 import IconButton from '.';
 import { HiOutlineArrowLeft, HiRefresh } from 'react-icons/hi';
 import { fn } from '@storybook/test';
+import { IoMdClose } from 'react-icons/io';
 
 export default {
   title: 'Components/IconButton',
@@ -19,4 +20,9 @@ Refresh.args = {
 export const GoToHome = Template.bind({});
 GoToHome.args = {
   children: <HiOutlineArrowLeft size={24} />,
+};
+
+export const CloseModal = Template.bind({});
+CloseModal.args = {
+  children: <IoMdClose size={16} />,
 };

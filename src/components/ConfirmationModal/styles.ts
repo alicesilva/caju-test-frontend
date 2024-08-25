@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import {Button} from "~/components/Buttons/ButtonPrimary/styles";
+import { Button } from "~/components/Buttons/ButtonPrimary/styles";
+import { IconButton } from "~/components/IconButton/styles";
 
 export const Container = styled.div`
   display: flex;
@@ -17,25 +18,49 @@ export const Content = styled.div`
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  padding: 32px;
+  padding: 24px;
 `;
 
 export const Header = styled.div`
-    display: flex;
-    justify-content: flex-end;
-    position: relative;
-    bottom: 28px;
-    right: -5%;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  bottom: 28px;
+  right: -28px;
 
+  ${IconButton} {
+    border: none;
     svg {
-        cursor: pointer;
+      cursor: pointer;
+      fill: #000;
     }
-`
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    display: block;
+  }
+`;
 
 export const Body = styled.div`
-    display:flex;
-    flex-direction: column;
-`
+  display: flex;
+  flex-direction: column;
+
+   ${IconButton} {
+    border: none;
+    svg {
+      cursor: pointer;
+      fill: #000;
+    }
+          z-index: 3;
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 8px;
+    display: block;
+`;
 
 export const Title = styled.div`
   font-size: 24px;
@@ -59,6 +84,12 @@ export const AgreeAction = styled.div`
   ${Button} {
     height: 40px;
     padding: 8px 16px;
+    opacity: 0.90;
+    background-color: #3d994df7;
+
+    &:hover {
+      opacity: 1.0;
+    } 
   }
 `;
 
@@ -66,6 +97,11 @@ export const DisagreeAction = styled.div`
   ${Button} {
     height: 40px;
     padding: 8px 16px;
-    background-color: #f34336;
+    background-color: #f04032;
+    opacity: 0.90;
+
+    &:hover {
+      opacity: 1.0;
+    } 
   }
 `;
