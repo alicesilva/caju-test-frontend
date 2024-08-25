@@ -21,7 +21,7 @@ const ConfirmationModal = () => {
           <S.Subtitle>{content.subtitle}</S.Subtitle>
           <S.Actions>
             <S.AgreeAction>
-              <ButtonPrimary autoFocus={true} onClick={() => setIsConfirm(true)}>{content.isConfirmButtonLabel}</ButtonPrimary>
+              <ButtonPrimary onClick={() => setIsConfirm(true)}>{content.isConfirmButtonLabel}</ButtonPrimary>
             </S.AgreeAction>
             <S.DisagreeAction>
               <ButtonPrimary onClick={() => setOpenModal(false)}>{content.isNotConfirmButtonLabel}</ButtonPrimary >

@@ -5,12 +5,11 @@ type Props = {
   children: ReactNode;
   onClick?: () => void;
   type?: 'button' | 'submit' | 'reset';
-  autoFocus?: boolean
 };
 
-const ButtonPrimary = ({ onClick, children, type, autoFocus = false}: Props) => {
+const ButtonPrimary = ({ onClick, children, type }: Props) => {
   return (
-    <S.Button onClick={onClick} type={type} autoFocus={autoFocus}>
+    <S.Button onClick={onClick} type={type}>
       {children}
     </S.Button>
   );
