@@ -272,7 +272,7 @@ to {
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   font-size: 16px;
   font-weight: 600;
-`,la=({onClick:e,children:t,type:n,autoFocus:r=!1})=>O.jsx(nl,{onClick:e,type:n,autoFocus:r,children:t}),VT=()=>{const e=$y(),{setRefetch:t,setSearchQuery:n}=el(),[r,i]=b.useState(""),o=()=>{e.push(Fr.newUser)},s=u=>{u.match(BT.CPF)&&n(Kf(u))},a=u=>{u.length===0&&n(u)},l=()=>{t(!0),n(""),i("")};return O.jsxs(zT,{children:[O.jsx(ji,{placeholder:"Digite um CPF válido",value:r,onChange:u=>{u.target.value=Dg(u.target.value),i(u.target.value),s(u.target.value),a(u.target.value)}}),O.jsxs(UT,{children:[O.jsx(Zf,{"data-testid":"refresh-icon","aria-label":"refetch",onClick:()=>l(),children:O.jsx($x,{})}),O.jsx(la,{onClick:()=>o(),children:"Nova Admissão"})]})]})},HT=ee.div`
+`,la=({onClick:e,children:t,type:n})=>O.jsx(nl,{onClick:e,type:n,children:t}),VT=()=>{const e=$y(),{setRefetch:t,setSearchQuery:n}=el(),[r,i]=b.useState(""),o=()=>{e.push(Fr.newUser)},s=u=>{u.match(BT.CPF)&&n(Kf(u))},a=u=>{u.length===0&&n(u)},l=()=>{t(!0),n(""),i("")};return O.jsxs(zT,{children:[O.jsx(ji,{placeholder:"Digite um CPF válido",value:r,onChange:u=>{u.target.value=Dg(u.target.value),i(u.target.value),s(u.target.value),a(u.target.value)}}),O.jsxs(UT,{children:[O.jsx(Zf,{"data-testid":"refresh-icon","aria-label":"refetch",onClick:()=>l(),children:O.jsx($x,{})}),O.jsx(la,{onClick:()=>o(),children:"Nova Admissão"})]})]})},HT=ee.div`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -358,7 +358,7 @@ to {
       opacity: 1.0;
     } 
   }
-`;function JT(e){return hr({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"},child:[]}]})(e)}const e_=()=>{const{setIsConfirm:e,setOpenModal:t,content:n}=Wa();return O.jsx(HT,{children:O.jsxs(WT,{children:[O.jsx(KT,{children:O.jsx(Zf,{children:O.jsx(JT,{onClick:()=>t(!1),size:16})})}),O.jsxs(GT,{children:[O.jsx(QT,{children:n.title}),O.jsx(qT,{children:n.subtitle}),O.jsxs(YT,{children:[O.jsx(XT,{children:O.jsx(la,{autoFocus:!0,onClick:()=>e(!0),children:n.isConfirmButtonLabel})}),O.jsx(ZT,{children:O.jsx(la,{onClick:()=>t(!1),children:n.isNotConfirmButtonLabel})})]})]})]})})},t_=()=>{const{openModal:e}=Wa();return O.jsxs(O.Fragment,{children:[e&&O.jsx(e_,{}),O.jsxs(FT,{children:[O.jsx(VT,{}),O.jsx(IT,{})]})]})},n_=ee.div`
+`;function JT(e){return hr({tag:"svg",attr:{viewBox:"0 0 512 512"},child:[{tag:"path",attr:{d:"M405 136.798L375.202 107 256 226.202 136.798 107 107 136.798 226.202 256 107 375.202 136.798 405 256 285.798 375.202 405 405 375.202 285.798 256z"},child:[]}]})(e)}const e_=()=>{const{setIsConfirm:e,setOpenModal:t,content:n}=Wa();return O.jsx(HT,{children:O.jsxs(WT,{children:[O.jsx(KT,{children:O.jsx(Zf,{children:O.jsx(JT,{onClick:()=>t(!1),size:16})})}),O.jsxs(GT,{children:[O.jsx(QT,{children:n.title}),O.jsx(qT,{children:n.subtitle}),O.jsxs(YT,{children:[O.jsx(XT,{children:O.jsx(la,{onClick:()=>e(!0),children:n.isConfirmButtonLabel})}),O.jsx(ZT,{children:O.jsx(la,{onClick:()=>t(!1),children:n.isNotConfirmButtonLabel})})]})]})]})})},t_=()=>{const{openModal:e}=Wa();return O.jsxs(O.Fragment,{children:[e&&O.jsx(e_,{}),O.jsxs(FT,{children:[O.jsx(VT,{}),O.jsx(IT,{})]})]})},n_=ee.div`
   display: flex;
   align-items: center;
   justify-content: center;
