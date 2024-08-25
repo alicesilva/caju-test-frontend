@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { HiRefresh } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
 import Button from "~/components/Buttons";
-import { IconButton } from "~/components/Buttons/IconButton";
+import IconButton  from "~/components/IconButton";
 import TextField from "~/components/TextField";
 import routes from "~/router/routes";
 import * as S from "./styles";
@@ -11,7 +11,7 @@ import { cpfMask } from "~/helpers/cpfMask";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import { regex } from "~/constants/regex";
 
-export const SearchBar = () => {
+const SearchBar = () => {
   const history = useHistory();
   const { setRefetch, setSearchQuery } = useFecthData();
   const [query, setQuery] = useState("");
@@ -63,3 +63,5 @@ export const SearchBar = () => {
     </S.Container>
   );
 };
+
+export default SearchBar;

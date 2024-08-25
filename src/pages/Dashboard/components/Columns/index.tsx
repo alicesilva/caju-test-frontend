@@ -2,7 +2,7 @@ import * as S from "./styles";
 import RegistrationCard from "../RegistrationCard";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
 import { useFecthData } from "~/components/contexts/RegistrationData";
-import { ColorRing } from "react-loader-spinner";
+import Loading from "~/components/Loading";
 
 const allColumns = [
   { status: RegistrationStatus.REVIEW, title: "Pronto para revisar" },
@@ -16,16 +16,7 @@ const Collumns = () => {
   return (
     <>
       {isLoading ? (
-        <S.Spinner data-testid="loading-spinner">
-          <ColorRing
-            visible={true}
-            height="100"
-            width="100"
-            ariaLabel="color-ring-loading"
-            wrapperClass="color-ring-wrapper"
-            colors={["#ff7500", "#e80537", "#ff7500", "#e80537", "#e80537"]}
-          />
-        </S.Spinner>
+        <Loading />
       ) : (
         <S.Container>
           {allColumns.map((collum) => {

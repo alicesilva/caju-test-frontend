@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { _IconButtonStyled } from "~/components/Buttons/IconButton";
+import { _IconButtonStyled } from "~/components/IconButton/styles";
 import Button from "~/components/Buttons";
 
 
@@ -28,11 +28,3 @@ export const Card = styled.div`
     align-self: flex-end;
   }
 `;
-
-
-export const InfoError = styled.p`
-    margin: 0;
-    font-size: 12px;
-    color: red;
-    margin-top: -12px;
-`

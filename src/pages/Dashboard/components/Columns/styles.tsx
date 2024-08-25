@@ -43,10 +43,3 @@ export const CollumContent = styled.div`
   overflow: auto;
   max-height: 85%;
 `;
-
-
-export const Spinner = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;

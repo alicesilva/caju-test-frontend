@@ -14,7 +14,9 @@
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d dist",
     "test:playwright": "playwright test --headed --config=playwright.config.ts --project=chromium",
-    "test:playwright:helper": "npx playwright codegen http://localhost:3000"
+    "test:playwright:helper": "npx playwright codegen http://localhost:3000",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@react-input/mask": "^1.2.5",
@@ -37,6 +39,14 @@
   "devDependencies": {
     "@nabla/vite-plugin-eslint": "^2.0.4",
     "@playwright/test": "^1.46.1",
+    "@storybook/addon-essentials": "7.6.20",
+    "@storybook/addon-interactions": "7.6.20",
+    "@storybook/addon-links": "7.6.20",
+    "@storybook/addon-onboarding": "1.0.11",
+    "@storybook/blocks": "7.6.20",
+    "@storybook/react": "7.6.20",
+    "@storybook/react-vite": "7.6.20",
+    "@storybook/test": "7.6.20",
     "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "13.0.0",
     "@testing-library/user-event": "^14.5.2",
@@ -55,9 +65,11 @@
     "eslint-plugin-react": "^7.34.2",
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-storybook": "^0.8.0",
     "gh-pages": "^6.1.1",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "29.7.0",
+    "storybook": "7.6.20",
     "ts-jest": "29.1.2",
     "ts-node": "10.9.2",
     "typescript": "^5.2.2",

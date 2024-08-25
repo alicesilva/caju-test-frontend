@@ -2,7 +2,7 @@ import TextField from "~/components/TextField";
 import * as S from "./styles";
 import Button from "~/components/Buttons";
 import { HiOutlineArrowLeft } from "react-icons/hi";
-import { IconButton } from "~/components/Buttons/IconButton";
+import IconButton from "~/components/IconButton";
 import { useHistory } from "react-router-dom";
 import routes from "~/router/routes";
 import { useFormik } from "formik";
@@ -56,13 +56,11 @@ const NewUserPage = () => {
     },
   });
 
-  const InfoErrorText = (
+  const infoErrorText = (
     hasError: boolean | undefined,
     msgError: string | undefined
   ) => {
-    return (
-      <>{hasError && msgError ? <S.InfoError>{msgError}</S.InfoError> : null}</>
-    );
+    return hasError && msgError ? msgError: undefined;
   };
 
   return (
@@ -78,8 +76,8 @@ const NewUserPage = () => {
           onBlur={formik.handleBlur}
           value={formik.values.employeeName}
           name="employeeName"
+          error={infoErrorText(formik.touched.employeeName, formik.errors.employeeName)}
         />
-        {InfoErrorText(formik.touched.employeeName, formik.errors.employeeName)}
         <TextField
           placeholder="Email"
           label="Email"
@@ -88,9 +86,8 @@ const NewUserPage = () => {
           onBlur={formik.handleBlur}
           value={formik.values.email}
           name="email"
+          error={infoErrorText(formik.touched.email, formik.errors.email)}
         />
-        {InfoErrorText(formik.touched.email, formik.errors.email)}
-
         <TextField
           placeholder="CPF"
           label="CPF"
@@ -103,8 +100,8 @@ const NewUserPage = () => {
             }
           }}
           value={formik.values.cpf}
+          error={infoErrorText(formik.touched.cpf, formik.errors.cpf)}
         />
-        {InfoErrorText(formik.touched.cpf, formik.errors.cpf)}
 
         <TextField
           label="Data de admissão"
@@ -114,8 +111,8 @@ const NewUserPage = () => {
           value={formik.values.date}
           name="date"
           placeholder="Data de admissão"
+          error={infoErrorText(formik.touched.date, formik.errors.date)}
         />
-        {InfoErrorText(formik.touched.date, formik.errors.date)}
 
         <Button onClick={() => formik.submitForm()} type="submit">
           Cadastrar
