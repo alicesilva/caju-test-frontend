@@ -17,7 +17,11 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '21'
-
+      - name: Git config
+        run: |
+              git config --global user.email alice.silva@ccc.ufcg.edu.br
+              git config --global user.name alicesilva
+              git remote set-url origin https://alicesilva:${{ secrets.MY_PASSWORD }}@github.com/alicesilva/caju-test-frontend.git
       - name: Install dependencies
         run: yarn install
 
