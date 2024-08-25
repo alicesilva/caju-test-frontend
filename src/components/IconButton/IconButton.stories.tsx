@@ -6,13 +6,6 @@ import { fn } from '@storybook/test';
 export default {
   title: 'Components/IconButton',
   component: IconButton,
-  argTypes: {
-    children: {
-      control: {
-        type: 'text',
-      },
-    },
-  },
   args: { onClick: fn() }
 } as Meta;
 
