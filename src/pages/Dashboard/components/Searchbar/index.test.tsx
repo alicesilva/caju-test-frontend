@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { SearchBar } from ".";
+import SearchBar from ".";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { useHistory } from "react-router-dom";
