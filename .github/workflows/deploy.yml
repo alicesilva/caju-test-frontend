@@ -21,7 +21,7 @@ jobs:
         run: |
               git config --global user.email alice.silva@ccc.ufcg.edu.br
               git config --global user.name alicesilva
-              git remote set-url origin https://alicesilva:${{ secrets.MY_PASSWORD }}@github.com/alicesilva/caju-test-frontend.git
+              git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/alicesilva/caju-test-frontend.git
       - name: Install dependencies
         run: yarn install
 
