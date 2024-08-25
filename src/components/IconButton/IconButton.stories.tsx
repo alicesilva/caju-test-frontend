@@ -1,6 +1,6 @@
 import { Meta, StoryFn } from '@storybook/react';
 import IconButton from '.';
-import { HiRefresh } from 'react-icons/hi';
+import { HiOutlineArrowLeft, HiRefresh } from 'react-icons/hi';
 import { fn } from '@storybook/test';
 
 export default {
@@ -18,7 +18,12 @@ export default {
 
 const Template: StoryFn = (args) => <IconButton {...args} />;
 
-export const Default = Template.bind({});
-Default.args = {
+export const Refresh = Template.bind({});
+Refresh.args = {
   children: <HiRefresh size={24} />,
+};
+
+export const GoToHome = Template.bind({});
+GoToHome.args = {
+  children: <HiOutlineArrowLeft size={24} />,
 };
