@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { _IconButtonStyled } from "~/components/IconButton/styles";
-import Button from "~/components/Buttons";
+import { Button } from "~/components/Buttons/ButtonPrimary/styles";
 
 
 export const Container = styled.div`

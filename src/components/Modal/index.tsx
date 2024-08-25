@@ -1,7 +1,7 @@
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
-import Button from "../Buttons";
 import * as S from "./styles";
 import { IoMdClose } from "react-icons/io";
+import ButtonPrimary from "../Buttons/ButtonPrimary";
 
 const Modal = () => {
   const { setIsConfirm, setOpenModal, content } = useConfirmationModal();
@@ -16,11 +16,11 @@ const Modal = () => {
           <S.Title>{content.title}</S.Title>
           <S.Subtitle>{content.subtitle}</S.Subtitle>
           <S.Actions>
-            <S.AgreeAction onClick={() => setIsConfirm(true)}>
-              <Button>{content.isConfirmButtonLabel}</Button>
+            <S.AgreeAction>
+              <ButtonPrimary onClick={() => setIsConfirm(true)}>{content.isConfirmButtonLabel}</ButtonPrimary>
             </S.AgreeAction>
-            <S.DisagreeAction onClick={() => setOpenModal(false)}>
-              <Button>{content.isNotConfirmButtonLabel}</Button>
+            <S.DisagreeAction>
+              <ButtonPrimary onClick={() => setOpenModal(false)}>{content.isNotConfirmButtonLabel}</ButtonPrimary >
             </S.DisagreeAction>
           </S.Actions>
         </S.Body>

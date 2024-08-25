@@ -23,7 +23,7 @@ const mockDataReviewed: Registration = {
 
 
 export default {
-  title: "Components/Dashboard/RegistrationCard",
+  title: "Components/RegistrationCard",
   component: RegistrationCard,
   parameters: {},
 } as Meta;

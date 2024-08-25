@@ -1,5 +1,6 @@
+import React from "react";
 import * as S from "./styles";
-import RegistrationCard from "../RegistrationCard";
+import RegistrationCard from "~/components/RegistrationCard";
 import { RegistrationStatus } from "~/types/RegistrationStatus";
 import { useFecthData } from "~/components/contexts/RegistrationData";
 import Loading from "~/components/Loading";

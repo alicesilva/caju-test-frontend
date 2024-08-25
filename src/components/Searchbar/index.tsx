@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import { HiRefresh } from "react-icons/hi";
 import { useHistory } from "react-router-dom";
-import Button from "~/components/Buttons";
 import IconButton  from "~/components/IconButton";
 import TextField from "~/components/TextField";
 import routes from "~/router/routes";
@@ -10,6 +9,7 @@ import { useFecthData } from "~/components/contexts/RegistrationData";
 import { cpfMask } from "~/helpers/cpfMask";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import { regex } from "~/constants/regex";
+import ButtonPrimary from "~/components/Buttons/ButtonPrimary";
 
 const SearchBar = () => {
   const history = useHistory();
@@ -58,7 +58,7 @@ const SearchBar = () => {
         >
           <HiRefresh />
         </IconButton>
-        <Button onClick={() => goToNewAdmissionPage()}>Nova Admissão</Button>
+        <ButtonPrimary onClick={() => goToNewAdmissionPage()}>Nova Admissão</ButtonPrimary>
       </S.Actions>
     </S.Container>
   );

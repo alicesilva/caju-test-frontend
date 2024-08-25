@@ -1,6 +1,7 @@
 import { Meta, StoryFn } from '@storybook/react';
 import IconButton from '.';
 import { HiRefresh } from 'react-icons/hi';
+import { fn } from '@storybook/test';
 
 export default {
   title: 'Components/IconButton',
@@ -12,6 +13,7 @@ export default {
       },
     },
   },
+  args: { onClick: fn() }
 } as Meta;
 
 const Template: StoryFn = (args) => <IconButton {...args} />;

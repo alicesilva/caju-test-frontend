@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ButtonSmall } from "~/components/Buttons";
 import * as S from "./styles";
 import {
   HiOutlineMail,
@@ -14,6 +13,7 @@ import { Registration } from "~/types/Registration";
 import { Actions } from "~/types/Actions";
 import { contentsModal } from "~/constants/contentsModal";
 import useUpdateRegistration from "~/hooks/useUpdateRegistration";
+import StatusButton from "~/components/Buttons/StatusButton.tsx";
 
 const labelOfButtons = {
   [RegistrationStatus.REVIEW]: "Revisar novamente",
@@ -70,7 +70,7 @@ const RegistrationCard = (props: Props) => {
         <S.Actions>
           <S.ActionsStatus>
             {props.data.status === RegistrationStatus.REVIEW && (
-              <ButtonSmall
+              <StatusButton
                 bgcolor="rgb(255, 145, 154)"
                 onClick={() =>
                   handleClick({
@@ -80,10 +80,10 @@ const RegistrationCard = (props: Props) => {
                 }
               >
                 {labelOfButtons[RegistrationStatus.REPROVED]}
-              </ButtonSmall>
+              </StatusButton>
             )}
             {props.data.status === RegistrationStatus.REVIEW && (
-              <ButtonSmall
+              <StatusButton
                 bgcolor="rgb(155, 229, 155)"
                 onClick={() =>
                   handleClick({
@@ -93,13 +93,13 @@ const RegistrationCard = (props: Props) => {
                 }
               >
                 {labelOfButtons[RegistrationStatus.APPROVED]}
-              </ButtonSmall>
+              </StatusButton>
             )}
             {[
               RegistrationStatus.APPROVED,
               RegistrationStatus.REPROVED,
             ].includes(props.data.status) && (
-              <ButtonSmall
+              <StatusButton
                 bgcolor="#ff8858"
                 onClick={() =>
                   handleClick({
@@ -109,7 +109,7 @@ const RegistrationCard = (props: Props) => {
                 }
               >
                 {labelOfButtons[RegistrationStatus.REVIEW]}
-              </ButtonSmall>
+              </StatusButton>
             )}
           </S.ActionsStatus>
 

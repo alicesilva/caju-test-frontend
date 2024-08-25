@@ -1,6 +1,5 @@
 import TextField from "~/components/TextField";
 import * as S from "./styles";
-import Button from "~/components/Buttons";
 import { HiOutlineArrowLeft } from "react-icons/hi";
 import IconButton from "~/components/IconButton";
 import { useHistory } from "react-router-dom";
@@ -15,6 +14,7 @@ import { toast } from "react-toastify";
 import { useFecthData } from "~/components/contexts/RegistrationData";
 import { InputForm } from "~/types/InputForm";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
+import ButtonPrimary from "~/components/Buttons/ButtonPrimary";
 
 async function createAdmission(values: InputForm): Promise<Registration | null> {
   const registration: Registration = {
@@ -114,9 +114,9 @@ const NewUserPage = () => {
           error={infoErrorText(formik.touched.date, formik.errors.date)}
         />
 
-        <Button onClick={() => formik.submitForm()} type="submit">
+        <ButtonPrimary onClick={() => formik.submitForm()} type="submit">
           Cadastrar
-        </Button>
+        </ButtonPrimary>
       </S.Card>
     </S.Container>
   );
