@@ -10,5 +10,6 @@ export default {
   moduleNameMapper: {
     "^~/(.+)": "<rootDir>/src/$1",
   },
+  modulePathIgnorePatterns: ["e2e/"]
 //   setupFilesAfterEnv: ["@testing-library/jest-dom/extend-expect"],
 };
