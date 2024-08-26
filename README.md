@@ -37,7 +37,7 @@ Content-Type: application/json
 
 ## Como executar
 
-- Iniciar a API: 
+- Iniciar a API 
 ```shell
 yarn init:db
 ```
