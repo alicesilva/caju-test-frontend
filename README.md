@@ -43,7 +43,7 @@ yarn init:db
 ```
 - Executar a aplicação
 ```shell
-yarn init:db
+yarn dev
 ```
 
 Se tude tiver dado certo as seguintes portas estarão disponiveis:
