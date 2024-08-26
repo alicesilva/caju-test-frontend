@@ -1,13 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import * as S from "./styles";
+import { ButtonProps } from "~/types/PropsComponents";
 
-type Props = {
-  children: ReactNode;
-  onClick?: () => void;
-  bgcolor?: string;
-};
-
-const StatusButton = ({ onClick, children, bgcolor }: Props) => {
+const StatusButton = ({ onClick, children, bgcolor }: ButtonProps) => {
   return (
     <S.ButtonSmall onClick={onClick} bgcolor={bgcolor}>
       {children}

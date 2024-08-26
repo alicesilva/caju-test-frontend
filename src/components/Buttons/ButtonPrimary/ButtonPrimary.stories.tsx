@@ -6,7 +6,6 @@ import { fn } from '@storybook/test';
 export default {
   title: 'Components/Buttons/ButtonPrimary',
   component: ButtonPrimary,
-  parameters: {},
   args: { onClick: fn() }
 } as Meta;
 

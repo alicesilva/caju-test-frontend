@@ -14,7 +14,7 @@ export default {
       control: {
         type: 'text',
       },
-    },
+    }
   },
 } as Meta;
 

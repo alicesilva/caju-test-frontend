@@ -9,11 +9,11 @@ import {
 
 import { RegistrationStatus } from "~/types/RegistrationStatus";
 import { useConfirmationModal } from "~/components/contexts/ModalContext";
-import { Registration } from "~/types/Registration";
 import { Actions } from "~/types/Actions";
 import { contentsModal } from "~/constants/contentsModal";
 import useUpdateRegistration from "~/hooks/useUpdateRegistration";
 import StatusButton from "~/components/Buttons/StatusButton.tsx";
+import { HandleClickProps, RegistrationDataProps } from "~/types/PropsComponents";
 
 const labelOfButtons = {
   [RegistrationStatus.REVIEW]: "Revisar novamente",
@@ -21,16 +21,11 @@ const labelOfButtons = {
   [RegistrationStatus.REPROVED]: "Reprovar",
 };
 
-type Props = {
-  data: Registration;
-};
 
-type HandleClickProps = {
-  action: Actions;
-  status?: RegistrationStatus;
-};
 
-const RegistrationCard = (props: Props) => {
+const RegistrationCard = (props: RegistrationDataProps
+
+) => {
   const { setOpenModal, setContent } = useConfirmationModal();
   const [action, setAction] = useState<Actions>(Actions.DEFAULT);
   const [newStatus, setNewStatus] = useState<RegistrationStatus>(

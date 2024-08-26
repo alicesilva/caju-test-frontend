@@ -1,7 +1,6 @@
 import React, {
   createContext,
   Dispatch,
-  ReactNode,
   SetStateAction,
   useContext,
   useEffect,
@@ -11,6 +10,7 @@ import React, {
 import { toast } from "react-toastify";
 import { deleteMaskCpf } from "~/helpers/deleteMaskCpf";
 import getRegistrations from "~/services/api/getRegistrations";
+import { ContextProviderProps } from "~/types/PropsComponents";
 import { Registration } from "~/types/Registration";
 
 interface IRegistrationDataContext {
@@ -31,11 +31,8 @@ const RegistrationDataContext = createContext<IRegistrationDataContext>({
   setRefetch: () => {},
 });
 
-type Props = {
-  children: ReactNode;
-};
 
-function RegistrationDataContextProvider({ children }: Props) {
+function RegistrationDataContextProvider({ children }: ContextProviderProps) {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isLoading, setIsLoading] = useState(false);

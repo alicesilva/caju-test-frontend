@@ -3,6 +3,7 @@ import IconButton from '.';
 import { HiOutlineArrowLeft, HiRefresh } from 'react-icons/hi';
 import { fn } from '@storybook/test';
 import { IoMdClose } from 'react-icons/io';
+import { ReactNode } from 'react';
 
 export default {
   title: 'Components/IconButton',
@@ -10,7 +11,9 @@ export default {
   args: { onClick: fn() }
 } as Meta;
 
-const Template: StoryFn = (args) => <IconButton {...args} />;
+const Template: StoryFn<{
+  children: ReactNode;
+}> = (args) => <IconButton {...args} />;
 
 export const Refresh = Template.bind({});
 Refresh.args = {

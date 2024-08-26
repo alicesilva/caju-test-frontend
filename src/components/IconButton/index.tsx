@@ -1,11 +1,9 @@
-import React, { ReactNode, HTMLAttributes } from "react";
+import React from "react";
 import * as S from "./styles";
+import { ButtonProps } from "~/types/PropsComponents";
 
-type IconButtonProps = {
-  children?: ReactNode;
-} & HTMLAttributes<HTMLButtonElement>;
 
-const IconButton = (props: IconButtonProps) => {
+const IconButton = (props: ButtonProps) => {
   return <S.IconButton {...props}>{props.children}</S.IconButton>;
 };
 

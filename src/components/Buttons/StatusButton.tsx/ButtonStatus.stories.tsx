@@ -6,7 +6,6 @@ import { fn } from '@storybook/test';
 export default {
   title: 'Components/Buttons/StatusButton',
   component: StatusButton,
-  parameters: {},
   args: { onClick: fn() }
 } as Meta;
 
@@ -20,7 +19,7 @@ const Template: StoryFn<{
 
 export const ReviewStatus = Template.bind({});
 ReviewStatus.args = {
-  children: "Revisar",
+  children: "Revisar novamente",
   bgColor: "#ff8858"
 };
 

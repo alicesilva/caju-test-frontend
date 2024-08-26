@@ -14,7 +14,7 @@ const mockDataReview: Registration = {
 
 const mockDataReviewed: Registration = {
   id: "2",
-  status: RegistrationStatus.REVIEW,
+  status: RegistrationStatus.APPROVED,
   employeeName: "Pedro da Silva",
   admissionDate: "2021-10-10",
   cpf: "123.456.789-00",

@@ -1,13 +1,8 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import * as S from "./styles";
+import { ButtonProps } from "~/types/PropsComponents";
 
-type Props = {
-  children: ReactNode;
-  onClick?: () => void;
-  type?: 'button' | 'submit' | 'reset';
-};
-
-const ButtonPrimary = ({ onClick, children, type }: Props) => {
+const ButtonPrimary = ({ onClick, children, type }: ButtonProps) => {
   return (
     <S.Button onClick={onClick} type={type}>
       {children}

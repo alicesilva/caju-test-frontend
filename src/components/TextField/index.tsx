@@ -1,12 +1,9 @@
-import React, { InputHTMLAttributes } from "react";
+import React from "react";
 import * as S from './styles'
+import { TextFieldProps } from "~/types/PropsComponents";
 
-type Props = {
-  label?: string;
-  error?: string;
-} & InputHTMLAttributes<any>;
 
-const TextField = (props: Props) => {
+const TextField = (props: TextFieldProps) => {
   return (
     <div>
       <label htmlFor={props.id}>{props.label}</label>

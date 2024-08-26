@@ -1,6 +1,5 @@
 import React, {
   createContext,
-  ReactNode,
   useContext,
   useMemo,
   useState,
@@ -8,6 +7,7 @@ import React, {
   SetStateAction
 } from "react";
 import { ContentModal } from "~/types/ContentModal";
+import { ContextProviderProps } from "~/types/PropsComponents";
 
 interface IModalContext {
   openModal: boolean,
@@ -32,11 +32,7 @@ const ModalContext = createContext<IModalContext>({
   setContent: () => {},
 });
 
-type ModalContextProviderProps = {
-  children: ReactNode;
-};
-
-function ModalContextProvider({ children }: ModalContextProviderProps) {
+function ModalContextProvider({ children }: ContextProviderProps) {
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [isConfirm, setIsConfirm] = useState<boolean>(false);
   const [content, setContent] = useState<ContentModal>({
