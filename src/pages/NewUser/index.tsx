@@ -79,8 +79,8 @@ const NewUserPage = () => {
           error={infoErrorText(formik.touched.employeeName, formik.errors.employeeName)}
         />
         <TextField
-          placeholder="Email"
-          label="Email"
+          placeholder="E-mail"
+          label="E-mail"
           type="email"
           onChange={formik.handleChange}
           onBlur={formik.handleBlur}

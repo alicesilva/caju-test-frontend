@@ -50,7 +50,7 @@ describe("NewUser Component", () => {
     const { debug } = render(<NewUser />);
 
     expect(screen.getByPlaceholderText(/Nome/i)).toBeInTheDocument();
-    expect(screen.getByPlaceholderText(/Email/i)).toBeInTheDocument();
+    expect(screen.getByPlaceholderText(/E-mail/i)).toBeInTheDocument();
     expect(screen.getByPlaceholderText(/CPF/i)).toBeInTheDocument();
     expect(screen.getByText(/Data de admissão/i)).toBeInTheDocument();
     expect(screen.getByText(/Cadastrar/i)).toBeInTheDocument();
@@ -75,7 +75,7 @@ describe("NewUser Component", () => {
 
     await user.type(screen.getByPlaceholderText(/Nome/i), "Test Name");
     await user.type(
-      screen.getByPlaceholderText(/Email/i),
+      screen.getByPlaceholderText(/E-mail/i),
       "teste@gmail.com"
     );
     await user.type(screen.getByPlaceholderText(/CPF/i), "123.456.789-10");

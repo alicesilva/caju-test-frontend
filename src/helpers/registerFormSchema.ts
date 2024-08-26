@@ -9,7 +9,7 @@ export const schema = yup.object({
   email: yup
     .string()
     .email("E-mail inválido.")
-    .required("Email é obrigatório."),
+    .required("E-mail é obrigatório."),
   cpf: yup
     .string()
     .required("CPF é obrigatório.")

@@ -4,7 +4,7 @@ test('should create registration with success when fields are valid', async ({ p
   await page.goto('/');
   await page.getByRole('button', { name: 'Nova Admissão' }).click();
   await page.getByPlaceholder('Nome').fill('teste name');
-  await page.getByPlaceholder('Email').fill('teste@gmail.com');
+  await page.getByPlaceholder('E-mail').fill('teste@gmail.com');
   await page.getByPlaceholder('CPF').fill('560.018.390-93');
   await page.getByPlaceholder('Data de admissão').fill('2024-08-24');
   await page.getByRole('button', { name: 'Cadastrar' }).click();
